@@ -14,6 +14,7 @@ public class Course extends Todo {
     private Status status;
     private String note;
     private ArrayList<Assessment> assessmentList = new ArrayList<>();
+    private Instructor instructor;
 
     /**
      * Creates a new course. Status is set to Status.PLANNED and note is set to null by default.
@@ -21,8 +22,9 @@ public class Course extends Todo {
      * @param startDate the start date of the course.
      * @param endDate the end date of the course.
      */
-    Course(String title, LocalDate startDate, LocalDate endDate) {
+    Course(String title, LocalDate startDate, LocalDate endDate, Instructor instructor) {
         super(title, startDate, endDate);
+        this.instructor = instructor;
         status = Status.PLANNED;
         note = null;
     }
@@ -81,5 +83,21 @@ public class Course extends Todo {
      */
     public void setNote(String note) {
         this.note = note;
+    }
+
+    /**
+     * Gets the instructor of the course.
+     * @return the instructor of the course.
+     */
+    public Instructor getInstructor() {
+        return instructor;
+    }
+
+    /**
+     * Sets the instructor of the course. This may not be used ever.
+     * @param instructor the instructor to set.
+     */
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 }
