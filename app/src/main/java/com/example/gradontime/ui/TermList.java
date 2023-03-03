@@ -7,7 +7,7 @@ import android.view.View;
 
 import com.example.gradontime.R;
 
-public class TermList extends AppCompatActivity {
+public abstract class TermList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
