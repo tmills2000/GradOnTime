@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Grad On Time</string>
+    <string name="add_term">Add a term</string>
+    <string name="add_term_button">Add term button</string>
 </resources>
