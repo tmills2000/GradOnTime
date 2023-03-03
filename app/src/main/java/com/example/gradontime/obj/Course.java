@@ -12,10 +12,11 @@ enum Status {
 
 public class Course extends Todo {
     private Status status;
+    private String note;
     private ArrayList<Assessment> assessmentList = new ArrayList<>();
 
     /**
-     * Creates a new course. Status is set to Status.PLANNED by default.
+     * Creates a new course. Status is set to Status.PLANNED and note is set to null by default.
      * @param title the title of the course.
      * @param startDate the start date of the course.
      * @param endDate the end date of the course.
@@ -23,6 +24,7 @@ public class Course extends Todo {
     Course(String title, LocalDate startDate, LocalDate endDate) {
         super(title, startDate, endDate);
         status = Status.PLANNED;
+        note = null;
     }
 
     /**
@@ -63,5 +65,21 @@ public class Course extends Todo {
      */
     public boolean hasAppointments() {
         return assessmentList.isEmpty();
+    }
+
+    /**
+     * Gets the note that was set on the Course object.
+     * @return the note if one is set, null if not set.
+     */
+    public String getNote() {
+        return note;
+    }
+
+    /**
+     * Sets the note on the Course object.
+     * @param note the note to set.
+     */
+    public void setNote(String note) {
+        this.note = note;
     }
 }
