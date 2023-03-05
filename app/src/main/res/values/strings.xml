@@ -2,4 +2,8 @@
     <string name="app_name">Grad On Time</string>
     <string name="add_term">Add a term</string>
     <string name="add_term_button">Add term button</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date</string>
+    <string name="title">Title</string>
+    <string name="save">Save</string>
 </resources>

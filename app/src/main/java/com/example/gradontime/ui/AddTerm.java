@@ -7,14 +7,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gradontime.R;
 
-public class TermList extends AppCompatActivity {
+public class AddTerm extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_term_list);
-    }
-    public void onAddClick(View view) {
         setContentView(R.layout.activity_add_dated_obj);
+    }
+    public void onSaveClick(View view) {
+
     }
 }
