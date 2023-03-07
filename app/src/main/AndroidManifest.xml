@@ -12,10 +12,13 @@
         android:theme="@style/Theme.GradOnTime"
         tools:targetApi="31">
         <activity
-            android:name=".AddTerm"
+            android:name=".ui.AddTerm"
+            android:parentActivityName=".ui.TermList"
+            android:label="@string/add_term"
             android:exported="false" />
         <activity
             android:name=".ui.TermList"
+            android:label="@string/term_list"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
