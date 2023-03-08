@@ -13,6 +13,7 @@ import com.example.gradontime.R;
 import com.example.gradontime.obj.Term;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class AddTerm extends AppCompatActivity {
 
@@ -41,16 +42,23 @@ public class AddTerm extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * TODO: Needs error validation for date pattern.
+     * TODO: Auto-input a forward slash after entering numbers.
+     * Good guide for text input <a href="https://guides.codepath.com/android/Working-with-the-EditText">here</a>
+     * @param view
+     */
     public void onSaveClick(View view) {
         EditText titleEditor = findViewById(R.id.titleInput);
         EditText startDateEditor = findViewById(R.id.startDateInput);
         EditText endDateEditor = findViewById(R.id.endDateInput);
 
         String title = titleEditor.getText().toString();
-        LocalDate startDate = LocalDate.parse(startDateEditor.getText().toString());
-        LocalDate endDate = LocalDate.parse(endDateEditor.getText().toString());
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        LocalDate startDate = LocalDate.parse(startDateEditor.getText().toString(), formatter);
+        LocalDate endDate = LocalDate.parse(endDateEditor.getText().toString(), formatter);
 
         Term newTerm = new Term(title, startDate, endDate);
-        System.out.println(newTerm);
     }
 }
