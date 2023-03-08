@@ -1,5 +1,6 @@
 package com.example.gradontime.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,6 +16,9 @@ public class TermList extends AppCompatActivity {
         setContentView(R.layout.activity_term_list);
     }
     public void onAddClick(View view) {
-        setContentView(R.layout.activity_add_dated_obj);
+//        setContentView(R.layout.activity_add_dated_obj);
+
+        Intent intent = new Intent(this, AddTerm.class);
+        startActivity(intent);
     }
 }
