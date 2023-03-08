@@ -4,11 +4,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gradontime.R;
+import com.example.gradontime.obj.Term;
+
+import java.time.LocalDate;
 
 public class AddTerm extends AppCompatActivity {
 
@@ -38,6 +42,15 @@ public class AddTerm extends AppCompatActivity {
     }
 
     public void onSaveClick(View view) {
+        EditText titleEditor = findViewById(R.id.titleInput);
+        EditText startDateEditor = findViewById(R.id.startDateInput);
+        EditText endDateEditor = findViewById(R.id.endDateInput);
 
+        String title = titleEditor.getText().toString();
+        LocalDate startDate = LocalDate.parse(startDateEditor.getText().toString());
+        LocalDate endDate = LocalDate.parse(endDateEditor.getText().toString());
+
+        Term newTerm = new Term(title, startDate, endDate);
+        System.out.println(newTerm);
     }
 }

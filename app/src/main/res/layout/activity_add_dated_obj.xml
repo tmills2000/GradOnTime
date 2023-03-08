@@ -47,15 +47,6 @@
         app:layout_constraintTop_toBottomOf="@id/titleLabel" />
 
     <EditText
-        android:id="@+id/endDateInput"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintLeft_toLeftOf="@id/endDateLabel"
-        app:layout_constraintTop_toBottomOf="@id/endDateLabel"/>
-
-    <EditText
         android:id="@+id/startDateInput"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -63,6 +54,15 @@
         android:inputType="date"
         app:layout_constraintLeft_toLeftOf="@id/startDateLabel"
         app:layout_constraintTop_toBottomOf="@id/startDateLabel"/>
+
+    <EditText
+        android:id="@+id/endDateInput"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintLeft_toLeftOf="@id/endDateLabel"
+        app:layout_constraintTop_toBottomOf="@id/endDateLabel"/>
 
     <Button
         android:id="@+id/saveButton"

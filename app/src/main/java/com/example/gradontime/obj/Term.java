@@ -5,9 +5,15 @@ import java.util.ArrayList;
 
 public class Term extends Todo{
     private ArrayList<Course> courseList = new ArrayList<>();
-    private
-    Term(String title, LocalDate startDate, LocalDate endDate) {
+    public Term(String title, LocalDate startDate, LocalDate endDate) {
         super(title, startDate, endDate);
+    }
+
+    @Override
+    public String toString() {
+        String concat = null;
+        concat = "Title: " + title + "\nStart: " + startDate.toString() + "\nEnd: " + endDate.toString();
+        return concat;
     }
 
     /**
