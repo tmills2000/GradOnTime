@@ -6,6 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.gradontime.DAO.AssessmentDAO;
 import com.example.gradontime.DAO.CourseDAO;
 import com.example.gradontime.DAO.TermDAO;
 import com.example.gradontime.obj.Assessment;

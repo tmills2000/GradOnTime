@@ -7,13 +7,14 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.gradontime.obj.Assessment;
 import com.example.gradontime.obj.Course;
 import com.example.gradontime.obj.Term;
 
 import java.util.List;
 
 @Dao
-public interface CourseDAO {
+public interface AssessmentDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insert(Course course);
 
@@ -23,6 +24,6 @@ public interface CourseDAO {
     @Delete
     void delete(Course course);
 
-    @Query("SELECT * FROM courses ORDER BY courseId ASC")
-    List<Course> getAll();
+    @Query("SELECT * FROM assessments ORDER BY assessmentId ASC")
+    List<Assessment> getAll();
 }
