@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 @Entity(tableName = "terms")
-public class Term extends Todo{
+public class Term extends DatedItem {
     @PrimaryKey(autoGenerate = true)
     private int termId;
     private ArrayList<Course> courseList = new ArrayList<>();

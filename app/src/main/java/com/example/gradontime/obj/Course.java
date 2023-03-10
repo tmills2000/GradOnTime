@@ -10,7 +10,7 @@ enum Status {
     DROPPED;
 }
 
-public class Course extends Todo {
+public class Course extends DatedItem {
     private Status status;
     private String note;
     private ArrayList<Assessment> assessmentList = new ArrayList<>();
