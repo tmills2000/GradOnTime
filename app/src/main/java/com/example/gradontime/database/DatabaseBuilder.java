@@ -6,6 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.gradontime.DAO.CourseDAO;
 import com.example.gradontime.DAO.TermDAO;
 import com.example.gradontime.obj.Assessment;
 import com.example.gradontime.obj.Course;
@@ -14,8 +15,8 @@ import com.example.gradontime.obj.Term;
 @Database(entities = {Term.class, Course.class, Assessment.class}, version = 1, exportSchema = false)
 public abstract class DatabaseBuilder extends RoomDatabase {
     public abstract TermDAO termDAO();
-    public abstract CourseDAO courseDAO;
-    public abstract AssessmentDAO assessmentDAO;
+    public abstract CourseDAO courseDAO();
+    public abstract AssessmentDAO assessmentDAO();
 
     private static volatile DatabaseBuilder INSTANCE;
 

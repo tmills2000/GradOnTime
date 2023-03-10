@@ -1,5 +1,8 @@
 package com.example.gradontime.obj;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -10,7 +13,10 @@ enum Status {
     DROPPED;
 }
 
+@Entity(tableName = "courses")
 public class Course extends DatedItem {
+    @PrimaryKey(autoGenerate = true)
+    private int courseId;
     private Status status;
     private String note;
     private ArrayList<Assessment> assessmentList = new ArrayList<>();
