@@ -1,9 +1,15 @@
 package com.example.gradontime.obj;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+@Entity(tableName = "terms")
 public class Term extends Todo{
+    @PrimaryKey(autoGenerate = true)
+    private int termId;
     private ArrayList<Course> courseList = new ArrayList<>();
     public Term(String title, LocalDate startDate, LocalDate endDate) {
         super(title, startDate, endDate);
