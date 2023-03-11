@@ -13,7 +13,7 @@ import com.example.gradontime.obj.Assessment;
 import com.example.gradontime.obj.Course;
 import com.example.gradontime.obj.Term;
 
-@Database(entities = {Term.class, Course.class, Assessment.class}, version = 1, exportSchema = false)
+@Database(entities = {Term.class, Course.class, Assessment.class}, version = 2, exportSchema = false)
 public abstract class DatabaseBuilder extends RoomDatabase {
     public abstract TermDAO termDAO();
     public abstract CourseDAO courseDAO();

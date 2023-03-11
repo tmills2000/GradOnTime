@@ -31,21 +31,41 @@ public class DataBaseInteractor {
         courseDAO = db.courseDAO();
         assessmentDAO = db.assessmentDAO();
 
-        dbExecutor.execute( () -> allTerms = termDAO.getAll());
+        dbExecutor.execute( () -> allTerms = termDAO.getAll() );
+        dbExecutor.execute( () -> allCourses = courseDAO.getAll() );
+        dbExecutor.execute( () -> allAssessments = assessmentDAO.getAll() );
     }
 
     public void insertTerm(Term term) {
         // Gets the final Term in the list of terms, adds one to the ID and then sets the term's ID
         // before adding it to the DB.
-        int lastIndex = allTerms.size();
-        int termId = allTerms.get(lastIndex - 1).getTermId() + 1;
+        int lastIndex = allTerms.size() - 1;
+        int termId = allTerms.get(lastIndex).getTermId() + 1;
         term.setTermId(termId);
 
-        dbExecutor.execute( () -> {
-            termDAO.insert(term);
-        });
+        dbExecutor.execute( () -> termDAO.insert(term) );
 
         allTerms.add(term);
+    }
+
+    public void insertCourse(Course course) {
+        int lastIndex = allCourses.size() - 1;
+        int courseId = allCourses.get(lastIndex).getCourseId() + 1;
+        course.setCourseId(courseId);
+
+        dbExecutor.execute( () -> courseDAO.insert(course) );
+
+        allCourses.add(course);
+    }
+
+    public void insertAssessment(Assessment assessment) {
+        int lastIndex = allAssessments.size() - 1;
+        int assessmentId = allAssessments.get(lastIndex).getAssessmentId() + 1;
+        assessment.setAssessmentId(assessmentId);
+
+        dbExecutor.execute( () -> assessmentDAO.insert(assessment));
+
+        allAssessments.add(assessment);
     }
 
 }
