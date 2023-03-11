@@ -29,6 +29,7 @@ public class Course extends DatedItem {
     }
 
     /**
+     * TODO: Add another constructor for creating courses without IDs.
      * Creates a new course. Status is set to PLANNED and note is set to null by default.
      *
      * @param id        the id of the course.

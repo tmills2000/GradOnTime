@@ -13,19 +13,19 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class DataBaseInteractor {
+public class Repository {
     private TermDAO termDAO;
     private CourseDAO courseDAO;
     private AssessmentDAO assessmentDAO;
 
-    private List<Term> allTerms;
-    private List<Course> allCourses;
-    private List<Assessment> allAssessments;
+    private static List<Term> allTerms;
+    private static List<Course> allCourses;
+    private static List<Assessment> allAssessments;
 
     private static final int NUM_THREADS = 4;
     static final ExecutorService dbExecutor = Executors.newFixedThreadPool(NUM_THREADS);
 
-    public DataBaseInteractor(Application app) {
+    public Repository(Application app) {
         DatabaseBuilder db = DatabaseBuilder.getDatabase(app);
         termDAO = db.termDAO();
         courseDAO = db.courseDAO();
