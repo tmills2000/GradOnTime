@@ -28,7 +28,6 @@ public abstract class DatabaseBuilder extends RoomDatabase {
                         .fallbackToDestructiveMigration()
                         .build();
             }
-
         }
         return INSTANCE;
     }

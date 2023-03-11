@@ -10,12 +10,15 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gradontime.R;
+import com.example.gradontime.database.DataBaseInteractor;
 import com.example.gradontime.obj.Term;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class AddTerm extends AppCompatActivity {
+
+    DataBaseInteractor interactor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class AddTerm extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        interactor = new DataBaseInteractor(getApplication());
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
@@ -56,9 +60,10 @@ public class AddTerm extends AppCompatActivity {
         String title = titleEditor.getText().toString();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-        LocalDate startDate = LocalDate.parse(startDateEditor.getText().toString(), formatter);
-        LocalDate endDate = LocalDate.parse(endDateEditor.getText().toString(), formatter);
+        String startDate = startDateEditor.getText().toString();
+        String endDate = endDateEditor.getText().toString();
 
         Term newTerm = new Term(title, startDate, endDate);
+        interactor.insertTerm(newTerm);
     }
 }

@@ -3,27 +3,30 @@ package com.example.gradontime.obj;
 import java.time.LocalDate;
 
 public abstract class DatedItem {
-    protected LocalDate startDate, endDate;
+    protected String startDate, endDate;
     protected String title;
-    DatedItem(String title, LocalDate startDate, LocalDate endDate) {
+
+    DatedItem() {
+    }
+    DatedItem(String title, String startDate, String endDate) {
         this.title = title;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    public LocalDate getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 

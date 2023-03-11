@@ -1,6 +1,7 @@
 package com.example.gradontime.obj;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.time.LocalDate;
@@ -10,9 +11,20 @@ import java.util.ArrayList;
 public class Term extends DatedItem {
     @PrimaryKey(autoGenerate = true)
     private int termId;
+    @Ignore
     private ArrayList<Course> courseList = new ArrayList<>();
-    public Term(String title, LocalDate startDate, LocalDate endDate) {
+
+    public Term() {
+
+    }
+    @Ignore
+    public Term(String title, String startDate, String endDate) {
         super(title, startDate, endDate);
+    }
+
+    public Term(int termId, String title, String startDate, String endDate) {
+        this(title, startDate, endDate);
+        this.termId = termId;
     }
 
     @Override
@@ -20,6 +32,14 @@ public class Term extends DatedItem {
         String concat = null;
         concat = "Title: " + title + "\nStart: " + startDate.toString() + "\nEnd: " + endDate.toString();
         return concat;
+    }
+
+    public void setTermId(int termId) {
+        this.termId = termId;
+    }
+
+    public int getTermId() {
+        return termId;
     }
 
     /**

@@ -1,35 +1,47 @@
 package com.example.gradontime.obj;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 
-enum Status {
-    PLANNED,
-    CURRENT,
-    COMPLETE,
-    DROPPED;
-}
-
-@Entity(tableName = "courses")
+@Entity(tableName = "courses", foreignKeys = {
+        @ForeignKey(
+                entity = Term.class,
+                parentColumns = "termId",
+                childColumns = "termId"
+        )
+})
 public class Course extends DatedItem {
     @PrimaryKey(autoGenerate = true)
     private int courseId;
+    private int termId;
     private Status status;
     private String note;
+    @Ignore
     private ArrayList<Assessment> assessmentList = new ArrayList<>();
-    private Instructor instructor;
+    private String instructor;
+
+    public Course() {
+        super();
+    }
 
     /**
-     * Creates a new course. Status is set to Status.PLANNED and note is set to null by default.
-     * @param title the title of the course.
+     * Creates a new course. Status is set to PLANNED and note is set to null by default.
+     *
+     * @param id        the id of the course.
+     * @param title     the title of the course.
      * @param startDate the start date of the course.
-     * @param endDate the end date of the course.
+     * @param endDate   the end date of the course.
+     * @param courseId
+     * @param termId
      */
-    Course(String title, LocalDate startDate, LocalDate endDate, Instructor instructor) {
+    public Course(int id, String title, String startDate, String endDate, int courseId, int termId, String instructor) {
         super(title, startDate, endDate);
+        this.courseId = courseId;
+        this.termId = termId;
         this.instructor = instructor;
         status = Status.PLANNED;
         note = null;
@@ -95,7 +107,7 @@ public class Course extends DatedItem {
      * Gets the instructor of the course.
      * @return the instructor of the course.
      */
-    public Instructor getInstructor() {
+    public String getInstructor() {
         return instructor;
     }
 
@@ -103,7 +115,23 @@ public class Course extends DatedItem {
      * Sets the instructor of the course. This may not be used ever.
      * @param instructor the instructor to set.
      */
-    public void setInstructor(Instructor instructor) {
+    public void setInstructor(String instructor) {
         this.instructor = instructor;
+    }
+
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public void setCourseId(int courseId) {
+        this.courseId = courseId;
+    }
+
+    public int getTermId() {
+        return termId;
+    }
+
+    public void setTermId(int termId) {
+        this.termId = termId;
     }
 }
