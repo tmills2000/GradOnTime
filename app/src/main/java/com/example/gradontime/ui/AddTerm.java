@@ -13,8 +13,6 @@ import com.example.gradontime.R;
 import com.example.gradontime.database.Repository;
 import com.example.gradontime.obj.Term;
 
-import java.time.format.DateTimeFormatter;
-
 public class AddTerm extends AppCompatActivity {
 
     Repository repo;

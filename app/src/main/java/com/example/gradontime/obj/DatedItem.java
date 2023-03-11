@@ -1,7 +1,5 @@
 package com.example.gradontime.obj;
 
-import java.time.LocalDate;
-
 public abstract class DatedItem {
     protected String startDate, endDate;
     protected String title;

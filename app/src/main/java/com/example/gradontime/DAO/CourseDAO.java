@@ -8,7 +8,6 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.gradontime.obj.Course;
-import com.example.gradontime.obj.Term;
 
 import java.util.List;
 
